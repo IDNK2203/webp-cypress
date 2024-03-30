@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import db from "@/lib/supabase/db";
-import ThemeProvider from "@/lib/themeProvider/next-theme-provider";
-// import objy from "../../dizzleConfig";
-// db
+import ThemeProvider from "@/lib/Provider/next-theme-provider";
+import { twMerge } from "tailwind-merge";
+import { DM_Sans } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,11 +19,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   console.log(db);
-  // console.log(objy);
 
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    // suppressHydrationWarning,
+    <html lang="en" className="dark">
+      <body className={twMerge("bg-background", inter.className)}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           {children}
         </ThemeProvider>
