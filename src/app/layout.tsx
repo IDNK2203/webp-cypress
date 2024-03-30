@@ -21,10 +21,10 @@ export default function RootLayout({
   console.log(db);
 
   return (
-    // suppressHydrationWarning,
+    // suppressHydrationWarning, attribute="class"
     <html lang="en" className="dark">
       <body className={twMerge("bg-background", inter.className)}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+        <ThemeProvider defaultTheme="dark" enableSystem>
           {children}
         </ThemeProvider>
       </body>
